@@ -1,88 +1,41 @@
-# Correlation and regression for data analysis
-# Aim : 
+# EXP 04 : Single server with infinite capacity (M/M/1):(oo/FIFO)
+# DATE : 09.10.2024
+## AIM :
+To find (a) average number of materials in the system (b) average number of materials in the conveyor (c) waiting time of each material in the system (d) waiting time of each material in the conveyor, if the arrival  of materials follow poisson process with the mean interval time 12 seconds, serivice time of lathe machine follows exponential distribution with mean serice time 1 second and average service time of robot is 7seconds.
 
-To analyse given data using coeffificient of correlation and regression line
-![image](https://user-images.githubusercontent.com/104613195/168224136-d6b64e64-7d3d-4775-9337-c8f96fe41f2d.png)
+## SOFTWARE REQUIRED :
+Visual components and Python
 
+## THEORY :
+Queuing are the most frequently encountered problems in everyday life. For example, queue at a cafeteria, library, bank, etc. Common to all of these cases are the arrivals of objects requiring service and the attendant delays when the service mechanism is busy. Waiting lines cannot be eliminated completely, but suitable techniques can be used to reduce the waiting time of an object in the system. A long waiting line may result in loss of customers to an organization. Waiting time can be reduced by providing additional service facilities, but it may result in an increase in the idle time of the service mechanism.
 
-# Software required :  
+![image](1.png)
 
-Python
+This is a queuing model in which the arrival is Marcovian and departure distribution is also Marcovian,number of server is one and size of the queue is also Marcovian,no.of server is one and size of the queue is infinite and service discipline is 1st come 1st serve(FCFS) and the calling source is also finite.
 
-# Theory:
+## PROCEDURE  :
 
-Correlation describes the strength of an association between two variables, and is completely symmetrical, the correlation between A and B is the same as the correlation between B and A. However, if the two variables are related it means that when one changes by a certain amount the other changes on an average by a certain amount.  
-
-If y represents the dependent variable and x the independent variable, this relationship is described as the regression of y on x. The relationship can be represented by a simple equation called the regression equation. The regression equation representing how much y changes with any given change of x can be used to construct a regression line on a scatter diagram, and in the simplest case this is assumed to be a straight line.
-
-# Procedure :
-
-![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
-
-# Program :
-```python 
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Getting Inputs
-print("Enter the values of X separated by space")
-X = np.array([int(i) for i in input().split()])
-
-print("Enter the values of Y separated by space")
-Y = np.array([int(i) for i in input().split()])
-
-N = len(X)
-print(X, Y, N, sep='\n')
-
-# Calculating Sums and Means
-SumX = np.sum(X)
-SumY = np.sum(Y)
-SumX2 = np.sum(X**2)
-SumY2 = np.sum(Y**2)
-SumXY = np.sum(X * Y)
-
-MeanX = SumX / N
-MeanY = SumY / N
-
-# Calculating Regression Coefficient
-num = (N * SumXY) - (SumX * SumY)
-den = (N * SumX2) - (SumX**2)
-RegressionCoef = num / den
-
-# Regression Line Equation
-print(f"The Regression Y on X is Y = {RegressionCoef:.3f} ( X - {MeanX:.3f}) + {MeanY:.3f}")
-
-# Define Regression Function
-def Regression(x):
-    return MeanY + (RegressionCoef * (x - MeanX))
-
-# Plotting the Graph
-plt.scatter(X, Y)
-plt.plot(X, Regression(X))
-plt.xlabel("X-Data")
-plt.ylabel("Y-Data")
-plt.legend(['Data points', 'Regression Line'])
-plt.show()
-```
-
-## Input
-```
-Enter the values of X separated by space  
-25 28 35 32 31 36 29 38 34 32
-
-Enter the values of Y separated by space  
-43 46 49 41 36 32 31 30 33 39
-```
-
-# Output 
-```
-[25 28 35 32 31 36 29 38 34 32]
-[43 46 49 41 36 32 31 30 33 39]
-10
-The Regression Y on X is Y = -0.664 ( X - 32.000) + 38.000
-```
-![alt text](OutputGraph.png)
+![imAGE](2.png)
 
 
-# Result
-Thus the program is implemented and Executed Successfully
+
+## EXPERIMENT :
+![WhatsApp Image 2024-12-19 at 11 03 59_31fec9b2](https://github.com/user-attachments/assets/6a27f0b0-6c72-4845-abcd-95318cb3a919)
+
+
+
+ 
+## PROGRAM :
+DEVELOPED BY : SAMEER SHARIFF M
+
+REG NO : 212224220085
+
+![image](https://github.com/ramjan1729/Single-server-infinite-capacity---Markov-Model/assets/103921593/5f1fd58d-5929-4c51-89ea-4cef009e5bad)
+
+## OUTPUT :
+![Screenshot 2024-12-19 105217](https://github.com/user-attachments/assets/cf9db966-be60-4486-bfc2-5c66ad8500ea)
+
+
+## RESULT :
+The average number of material in the system and in the conveyor and waiting time are successfully found.
+
